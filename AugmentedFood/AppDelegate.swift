@@ -15,8 +15,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
-        return true
+        self.window = UIWindow(frame: UIScreen.main.bounds) // creating new window & makes it consume the screen
+        self.window?.makeKeyAndVisible() // Make the window to where I can see it
+        let navController = UINavigationController(rootViewController: LandingViewController())
+        window?.rootViewController = navController
+        return true 
     }
 
     func applicationWillResignActive(_ application: UIApplication) {
