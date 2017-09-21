@@ -7,8 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D7A883241F740DDC00BB1763 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A883231F740DDC00BB1763 /* CameraView.swift */; };
 		D7AF39991F7159EA006AFEFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF39981F7159EA006AFEFA /* AppDelegate.swift */; };
-		D7AF399B1F7159EA006AFEFA /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF399A1F7159EA006AFEFA /* ViewController.swift */; };
+		D7AF399B1F7159EA006AFEFA /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF399A1F7159EA006AFEFA /* LandingVC.swift */; };
 		D7AF399E1F7159EA006AFEFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7AF399C1F7159EA006AFEFA /* Main.storyboard */; };
 		D7AF39A01F7159EA006AFEFA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D7AF399F1F7159EA006AFEFA /* Assets.xcassets */; };
 		D7AF39A31F7159EA006AFEFA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D7AF39A11F7159EA006AFEFA /* LaunchScreen.storyboard */; };
@@ -34,9 +35,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D7A883231F740DDC00BB1763 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
+		D7A883251F740E1500BB1763 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 		D7AF39951F7159EA006AFEFA /* AugmentedFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AugmentedFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D7AF39981F7159EA006AFEFA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		D7AF399A1F7159EA006AFEFA /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D7AF399A1F7159EA006AFEFA /* LandingVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingVC.swift; sourceTree = "<group>"; };
 		D7AF399D1F7159EA006AFEFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D7AF399F1F7159EA006AFEFA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D7AF39A21F7159EA006AFEFA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -98,7 +101,9 @@
 			isa = PBXGroup;
 			children = (
 				D7AF39981F7159EA006AFEFA /* AppDelegate.swift */,
-				D7AF399A1F7159EA006AFEFA /* ViewController.swift */,
+				D7AF399A1F7159EA006AFEFA /* LandingVC.swift */,
+				D7A883231F740DDC00BB1763 /* CameraView.swift */,
+				D7A883251F740E1500BB1763 /* Resnet50.mlmodel */,
 				D7AF399C1F7159EA006AFEFA /* Main.storyboard */,
 				D7AF399F1F7159EA006AFEFA /* Assets.xcassets */,
 				D7AF39A11F7159EA006AFEFA /* LaunchScreen.storyboard */,
@@ -259,7 +264,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D7AF399B1F7159EA006AFEFA /* ViewController.swift in Sources */,
+				D7A883241F740DDC00BB1763 /* CameraView.swift in Sources */,
+				D7AF399B1F7159EA006AFEFA /* LandingVC.swift in Sources */,
 				D7AF39991F7159EA006AFEFA /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -433,7 +439,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "t.thorne96-yahoo.com.AugmentedFood";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -448,7 +454,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "t.thorne96-yahoo.com.AugmentedFood";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
