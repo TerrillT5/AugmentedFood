@@ -15,7 +15,7 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
     
     var previewLayer: AVCaptureVideoPreviewLayer!
     let imageSession = AVCaptureSession()
-
+    
     let classifierText: UILabel = {
         let classifer = UILabel()
         classifer.translatesAutoresizingMaskIntoConstraints = false
@@ -24,25 +24,24 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
         classifer.textAlignment = .center
         return classifer
     }()
-  
-internal func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
+    
+   
+ func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
-        guard let model =  try? VNCoreMLModel(for: Resnet50().model) else { return }
+        guard let model = try? VNCoreMLModel(for: Resnet50().model) else { return }
         let request = VNCoreMLRequest(model: model) { (finishedReq, err) in
         guard let results = finishedReq.results as?  [VNClassificationObservation] else { return }
         guard let firstObservation = results.first else { return }
         DispatchQueue.main.async {
-          self.classifierText.text = "This appears to be a \(firstObservation.identifier as String)"
+        self.classifierText.text = "This appears to be a \(firstObservation.identifier as String)"
              }
     }
         try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
     }
     init() {
         super.init(nibName: nil, bundle: nil)
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target:#selector(stopCamera), action:"Done")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target:#selector(stopCamera), action: "Done")
         navigationItem.rightBarButtonItem = doneButton
-        
-        
         view.backgroundColor = .white
     }
     required init?(coder aDecoder: NSCoder) {
@@ -52,33 +51,45 @@ internal func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: C
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target:#selector(stopCamera), action:"Done")
-//        navigationItem.rightBarButtonItem = doneButton
-//        imageSession.sessionPreset = .photo
+        let textView: UIView = {
+            let view = UIView()
+            view.backgroundColor = .white
+            view.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(classifierText)
+            return view
+        }()
+        
         guard let captureDevice = AVCaptureDevice.default(for: .video) else { return }
         guard let input = try? AVCaptureDeviceInput(device: captureDevice) else { return }
         imageSession.addInput(input)
         imageSession.startRunning()
-        
         previewLayer = AVCaptureVideoPreviewLayer(session: imageSession)
         previewLayer?.frame = view.bounds
         view.layer.addSublayer(previewLayer!)
         let dataOutput = AVCaptureVideoDataOutput()
         dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
         imageSession.addOutput(dataOutput)
+       
+        let textViewTopAnchor = textView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500)
+        let textViewRightAnchor = textView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5)
+        let textViewLeftAnchor = textView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10)
+        let textViewWidthAnchor = textView.widthAnchor.constraint(equalToConstant: view.frame.width)
+        let textViewHeightAnchor = textView.heightAnchor.constraint(equalToConstant: 100)
         
         let classifiedTextTopAnchor = classifierText.topAnchor.constraint(equalTo: view.topAnchor, constant: 500)
         let classifiedTextRightAnchor = classifierText.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
         let classifiedTextLeftAnchor = classifierText.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)
         let classifiedTextHeightAnchor = classifierText.heightAnchor.constraint(equalToConstant: 35)
         
-        view.addSubview(classifierText)
+        view.addSubview(textView)
         NSLayoutConstraint.activate([classifiedTextTopAnchor,classifiedTextRightAnchor,classifiedTextLeftAnchor,
-                                     classifiedTextHeightAnchor])
+                                     classifiedTextHeightAnchor,textViewTopAnchor,textViewRightAnchor,textViewLeftAnchor,textViewHeightAnchor,
+                                     textViewWidthAnchor])
     }
     
     @objc func stopCamera() {
         imageSession.stopRunning()
+        
         
         
         
