@@ -25,7 +25,6 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
         return classifer
     }()
     
-   
  func captureOutput(_ output: AVCaptureOutput, didOutput sampleBuffer: CMSampleBuffer, from connection: AVCaptureConnection) {
         guard let pixelBuffer: CVPixelBuffer = CMSampleBufferGetImageBuffer(sampleBuffer) else { return }
         guard let model = try? VNCoreMLModel(for: Resnet50().model) else { return }
@@ -33,14 +32,14 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
         guard let results = finishedReq.results as?  [VNClassificationObservation] else { return }
         guard let firstObservation = results.first else { return }
         DispatchQueue.main.async {
-        self.classifierText.text = "This appears to be a \(firstObservation.identifier as String)"
+        self.classifierText.text = "This appears to be a \(firstObservation.identifier)"
              }
     }
         try? VNImageRequestHandler(cvPixelBuffer: pixelBuffer, options: [:]).perform([request])
     }
     init() {
         super.init(nibName: nil, bundle: nil)
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target:#selector(stopCamera), action: "Done")
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target:#selector(stopCamera), action: #selector(stopCamera))
         navigationItem.rightBarButtonItem = doneButton
         view.backgroundColor = .white
     }
@@ -73,7 +72,7 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
         let textViewTopAnchor = textView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500)
         let textViewRightAnchor = textView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5)
         let textViewLeftAnchor = textView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10)
-        let textViewWidthAnchor = textView.widthAnchor.constraint(equalToConstant: view.frame.width)
+        let textViewWidthAnchor = textView.widthAnchor.constraint(equalToConstant: view.bounds.width)
         let textViewHeightAnchor = textView.heightAnchor.constraint(equalToConstant: 100)
         
         let classifiedTextTopAnchor = classifierText.topAnchor.constraint(equalTo: view.topAnchor, constant: 500)
@@ -87,8 +86,10 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
                                      textViewWidthAnchor])
     }
     
+    // stop the debugger from updating
     @objc func stopCamera() {
         imageSession.stopRunning()
+        previewLayer.session?.stopRunning()
         
         
         

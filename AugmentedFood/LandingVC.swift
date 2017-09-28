@@ -9,7 +9,7 @@
 import UIKit
 
 class LandingViewController: UIViewController {
-    
+
     var appName: UILabel = {
         let nameOfApp = UILabel()
         nameOfApp.text = "AR Food"
@@ -37,23 +37,20 @@ class LandingViewController: UIViewController {
         secondViewController.modalPresentationStyle = .fullScreen
         navigationController?.pushViewController(CameraView(), animated: true)
     }
-    
     override func viewDidLoad() {
     super.viewDidLoad()
         view.backgroundColor = UIColor(displayP3Red: 0.48, green: 0.65, blue: 0.70, alpha: 1)
         view.addSubview(appName)
         view.addSubview(nextScreenButton)
-        
         let topAppNameAnchor = appName.topAnchor.constraint(equalTo: view.topAnchor, constant: 120)
         let rightAppNameAnchor = appName.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50)
         let leftAppNameAnchor = appName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50)
         let heightAppNameAnchor = appName.heightAnchor.constraint(equalToConstant: 45)
-        
+
         let topButtonAnchor = nextScreenButton.topAnchor.constraint(equalTo: appName.bottomAnchor, constant: 50)
         let rightButtonAnchor = nextScreenButton.rightAnchor.constraint(equalTo: view.rightAnchor , constant: 20)
         let leftButtonAnchor = nextScreenButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -20)
         let heightButtonAnchor = nextScreenButton.heightAnchor.constraint(equalToConstant: 45)
-        
         nextScreenButton.addTarget(self, action: #selector(advanceToNextVC), for: .touchUpInside)
         NSLayoutConstraint.activate([topAppNameAnchor, rightAppNameAnchor,leftAppNameAnchor, heightAppNameAnchor,
                                      topButtonAnchor, rightButtonAnchor, leftButtonAnchor, heightButtonAnchor])
