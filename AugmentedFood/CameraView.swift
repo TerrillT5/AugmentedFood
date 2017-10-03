@@ -39,11 +39,10 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
     }
     init() {
         super.init(nibName: nil, bundle: nil)
-        let navController = UINavigationController()
-        navController.toolbar
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done,
                                          target: self,
                                          action: #selector(stopCamera))
+        self.navigationItem.rightBarButtonItem = doneButton
     
         view.backgroundColor = .white
     }
@@ -95,6 +94,7 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
         NSLayoutConstraint.activate([classifiedTextTopAnchor,classifiedTextRightAnchor,classifiedTextLeftAnchor,
                                      classifiedTextHeightAnchor,textViewTopAnchor,textViewRightAnchor,textViewLeftAnchor,textViewHeightAnchor,
                                      textViewWidthAnchor])
+        
     }
     
     @objc func stopCamera() {
@@ -102,11 +102,4 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
     }
 }
 
-
-extension CameraView: UINavigationController {
-    
-    
-    
-    
-}
 

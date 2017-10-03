@@ -13,10 +13,10 @@ class CustomNavigationController: UINavigationController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let secondVC = CameraView()
+        let secondVC = LandingViewController()
         let navigationController = UINavigationController(rootViewController: secondVC)
         navigationController.title = "Camera"
-        let toolItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doSomething))
+        //        let toolItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doSomething))
     }
    @objc func doSomething() {
         
