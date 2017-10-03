@@ -12,7 +12,7 @@ class LandingViewController: UIViewController {
 
     var appName: UILabel = {
         let nameOfApp = UILabel()
-        nameOfApp.text = "AR Food"
+        nameOfApp.text = "Augmented Food"
         nameOfApp.textColor = .white
         nameOfApp.font = UIFont(name: "Helvetica", size: 25)
         nameOfApp.textAlignment = .center
@@ -35,7 +35,8 @@ class LandingViewController: UIViewController {
     @objc func advanceToNextVC(sender: UIButton) {
         let secondViewController = CameraView()
         secondViewController.modalPresentationStyle = .fullScreen
-        navigationController?.pushViewController(CameraView(), animated: true)
+        present(secondViewController, animated: true, completion: nil)
+        
     }
     override func viewDidLoad() {
     super.viewDidLoad()
@@ -45,12 +46,12 @@ class LandingViewController: UIViewController {
         let topAppNameAnchor = appName.topAnchor.constraint(equalTo: view.topAnchor, constant: 120)
         let rightAppNameAnchor = appName.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -50)
         let leftAppNameAnchor = appName.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 50)
-        let heightAppNameAnchor = appName.heightAnchor.constraint(equalToConstant: 45)
-
+        let heightAppNameAnchor = appName.heightAnchor.constraint(equalToConstant: 70)
+ 
         let topButtonAnchor = nextScreenButton.topAnchor.constraint(equalTo: appName.bottomAnchor, constant: 50)
         let rightButtonAnchor = nextScreenButton.rightAnchor.constraint(equalTo: view.rightAnchor , constant: 20)
         let leftButtonAnchor = nextScreenButton.leftAnchor.constraint(equalTo: view.leftAnchor, constant: -20)
-        let heightButtonAnchor = nextScreenButton.heightAnchor.constraint(equalToConstant: 45)
+        let heightButtonAnchor = nextScreenButton.heightAnchor.constraint(equalToConstant: 80)
         nextScreenButton.addTarget(self, action: #selector(advanceToNextVC), for: .touchUpInside)
         NSLayoutConstraint.activate([topAppNameAnchor, rightAppNameAnchor,leftAppNameAnchor, heightAppNameAnchor,
                                      topButtonAnchor, rightButtonAnchor, leftButtonAnchor, heightButtonAnchor])

@@ -4,7 +4,7 @@
 //
 //  Created by Terrill Thorne on 9/21/17.
 //  Copyright © 2017 Terrill Thorne. All rights reserved.
-//
+
 
 import UIKit
 import AVKit
@@ -39,8 +39,12 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
     }
     init() {
         super.init(nibName: nil, bundle: nil)
-        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done, target:#selector(stopCamera), action: #selector(stopCamera))
-        navigationItem.rightBarButtonItem = doneButton
+        let navController = UINavigationController()
+        navController.toolbar
+        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done,
+                                         target: self,
+                                         action: #selector(stopCamera))
+    
         view.backgroundColor = .white
     }
     required init?(coder aDecoder: NSCoder) {
@@ -50,6 +54,13 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
+//        let currentView = CameraView()
+//        let navController = UINavigationController(rootViewController: currentView)
+//        self.present(navController, animated: true, completion: nil)
+//        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done,
+//                                         target: self,
+//                                         action: #selector(stopCamera))
+//        navigationItem.rightBarButtonItem = doneButton
         let textView: UIView = {
             let view = UIView()
             view.backgroundColor = .white
@@ -69,13 +80,13 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
         dataOutput.setSampleBufferDelegate(self, queue: DispatchQueue(label: "videoQueue"))
         imageSession.addOutput(dataOutput)
        
-        let textViewTopAnchor = textView.topAnchor.constraint(equalTo: view.topAnchor, constant: 500)
+        let textViewTopAnchor = textView.topAnchor.constraint(equalTo: view.topAnchor, constant: 620)
         let textViewRightAnchor = textView.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -5)
         let textViewLeftAnchor = textView.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 10)
         let textViewWidthAnchor = textView.widthAnchor.constraint(equalToConstant: view.bounds.width)
-        let textViewHeightAnchor = textView.heightAnchor.constraint(equalToConstant: 100)
+        let textViewHeightAnchor = textView.heightAnchor.constraint(equalToConstant: 50)
         
-        let classifiedTextTopAnchor = classifierText.topAnchor.constraint(equalTo: view.topAnchor, constant: 500)
+        let classifiedTextTopAnchor = classifierText.topAnchor.constraint(equalTo: view.topAnchor, constant: 620)
         let classifiedTextRightAnchor = classifierText.rightAnchor.constraint(equalTo: view.rightAnchor, constant: -20)
         let classifiedTextLeftAnchor = classifierText.leftAnchor.constraint(equalTo: view.leftAnchor, constant: 20)
         let classifiedTextHeightAnchor = classifierText.heightAnchor.constraint(equalToConstant: 35)
@@ -86,15 +97,16 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
                                      textViewWidthAnchor])
     }
     
-    // stop the debugger from updating
     @objc func stopCamera() {
         imageSession.stopRunning()
-        previewLayer.session?.stopRunning()
-        
-        
-        
-        
     }
+}
+
+
+extension CameraView: UINavigationController {
+    
+    
     
     
 }
+
