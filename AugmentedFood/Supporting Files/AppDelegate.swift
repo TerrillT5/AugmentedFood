@@ -13,11 +13,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         self.window = UIWindow(frame: UIScreen.main.bounds) // creating new window & makes it consume the screen
-        self.window?.makeKeyAndVisible() // Make the window to where I can see it
-        window?.rootViewController = LandingViewController()
+//        let cameraView = CameraView()
+//        let navigationController = UINavigationController(rootViewController: cameraView)
+        let navController = UINavigationController(rootViewController: LandingViewController())
+        window?.rootViewController = navController
+        window?.makeKeyAndVisible() // Make the window to where I can see it
+
         return true 
     }
 

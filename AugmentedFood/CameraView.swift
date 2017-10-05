@@ -5,6 +5,9 @@
 //  Created by Terrill Thorne on 9/21/17.
 //  Copyright © 2017 Terrill Thorne. All rights reserved.
 
+// ask to store image in photo library
+// store photo reference in core data & what the name of the image was
+
 
 import UIKit
 import AVKit
@@ -39,11 +42,11 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
     }
     init() {
         super.init(nibName: nil, bundle: nil)
+
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done,
                                          target: self,
                                          action: #selector(stopCamera))
         self.navigationItem.rightBarButtonItem = doneButton
-    
         view.backgroundColor = .white
     }
     required init?(coder aDecoder: NSCoder) {
@@ -53,13 +56,6 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        let currentView = CameraView()
-//        let navController = UINavigationController(rootViewController: currentView)
-//        self.present(navController, animated: true, completion: nil)
-//        let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done,
-//                                         target: self,
-//                                         action: #selector(stopCamera))
-//        navigationItem.rightBarButtonItem = doneButton
         let textView: UIView = {
             let view = UIView()
             view.backgroundColor = .white
@@ -91,15 +87,14 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
         let classifiedTextHeightAnchor = classifierText.heightAnchor.constraint(equalToConstant: 35)
         
         view.addSubview(textView)
-        NSLayoutConstraint.activate([classifiedTextTopAnchor,classifiedTextRightAnchor,classifiedTextLeftAnchor,
-                                     classifiedTextHeightAnchor,textViewTopAnchor,textViewRightAnchor,textViewLeftAnchor,textViewHeightAnchor,
-                                     textViewWidthAnchor])
-        
+        NSLayoutConstraint.activate([classifiedTextTopAnchor,classifiedTextRightAnchor,classifiedTextLeftAnchor,classifiedTextHeightAnchor,
+                                      textViewTopAnchor,textViewRightAnchor,textViewLeftAnchor,textViewHeightAnchor, textViewWidthAnchor])
     }
-    
     @objc func stopCamera() {
         imageSession.stopRunning()
+        
     }
 }
 
+//https://github.com/search?q=swift+navigation+controller+programmatically+&type=Issues&utf8=%E2%9C%93
 

@@ -6,22 +6,25 @@
 //  Copyright © 2017 Terrill Thorne. All rights reserved.
 //
 
-import UIKit
+//import UIKit
+//
+//class CustomNavigationController: UINavigationController {
+//
+//    override func viewDidLoad() {
+//        super.viewDidLoad()
+//
+//        let secondVC = CameraView()
+//        let navigationController = UINavigationController(rootViewController: secondVC)
+//        navigationController.title = "Camera"
+//        //        let toolItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doSomething))
+//
+//        setViewControllers([secondVC], animated: true)
+//    }
+//   @objc func doSomething() {
+//
+//
+//    }
+//
+//
+//}
 
-class CustomNavigationController: UINavigationController {
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        
-        let secondVC = LandingViewController()
-        let navigationController = UINavigationController(rootViewController: secondVC)
-        navigationController.title = "Camera"
-        //        let toolItem = UIBarButtonItem(barButtonSystemItem: .done, target: self, action: #selector(doSomething))
-    }
-   @objc func doSomething() {
-        
-        
-    }
-    
-    
-}

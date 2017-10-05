@@ -5,9 +5,7 @@
 //  Created by Terrill Thorne on 9/19/17.
 //  Copyright © 2017 Terrill Thorne. All rights reserved.
 //
-
 import UIKit
-
 class LandingViewController: UIViewController {
 
     var appName: UILabel = {
@@ -31,12 +29,10 @@ class LandingViewController: UIViewController {
         continueButton.setTitle("Continue", for: .normal)
         return continueButton
     }()
-    
     @objc func advanceToNextVC(sender: UIButton) {
         let secondViewController = CameraView()
         secondViewController.modalPresentationStyle = .fullScreen
-        present(secondViewController, animated: true, completion: nil)
-        
+        navigationController?.pushViewController(secondViewController, animated: true)
     }
     override func viewDidLoad() {
     super.viewDidLoad()
@@ -56,6 +52,4 @@ class LandingViewController: UIViewController {
         NSLayoutConstraint.activate([topAppNameAnchor, rightAppNameAnchor,leftAppNameAnchor, heightAppNameAnchor,
                                      topButtonAnchor, rightButtonAnchor, leftButtonAnchor, heightButtonAnchor])
     }
-    
-    
 }
