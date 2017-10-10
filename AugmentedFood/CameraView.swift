@@ -42,7 +42,6 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
     }
     init() {
         super.init(nibName: nil, bundle: nil)
-
         let doneButton = UIBarButtonItem(barButtonSystemItem: UIBarButtonSystemItem.done,
                                          target: self,
                                          action: #selector(stopCamera))
@@ -90,10 +89,25 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
         NSLayoutConstraint.activate([classifiedTextTopAnchor,classifiedTextRightAnchor,classifiedTextLeftAnchor,classifiedTextHeightAnchor,
                                       textViewTopAnchor,textViewRightAnchor,textViewLeftAnchor,textViewHeightAnchor, textViewWidthAnchor])
     }
+    // https://stackoverflow.com/questions/28137259/create-an-uialertaction-in-swift
     @objc func stopCamera() {
         imageSession.stopRunning()
+
+        
+        let alertController = UIAlertController(title: "Alert", message: "Save photo to library", preferredStyle: UIAlertControllerStyle.alert)
+        let savePhoto = UIAlertAction(title: "Save", style: UIAlertActionStyle.default, handler: nil)
+        
+        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
+        
+        alertController.addAction(savePhoto)
+        alertController.addAction(cancel)
+        self.present(alertController, animated: true, completion: nil)
         
     }
+    
+    
+    
+
 }
 
 //https://github.com/search?q=swift+navigation+controller+programmatically+&type=Issues&utf8=%E2%9C%93
