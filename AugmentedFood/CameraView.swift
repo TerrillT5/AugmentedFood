@@ -93,7 +93,6 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
     @objc func stopCamera() {
         imageSession.stopRunning()
 
-        
         let alertController = UIAlertController(title: "Alert", message: "Save photo to library", preferredStyle: UIAlertControllerStyle.alert)
         let savePhoto = UIAlertAction(title: "Save", style: UIAlertActionStyle.default, handler: nil)
         
@@ -104,9 +103,6 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
         self.present(alertController, animated: true, completion: nil)
         
     }
-    
-    
-    
 
 }
 
