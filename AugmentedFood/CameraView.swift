@@ -18,6 +18,7 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
     var imageSession = AVCaptureSession()
     let imageOutput = AVCapturePhotoOutput()
     var photoSettings = AVCapturePhotoSettings()
+    let image = UIImage()
     
     private enum sessionSetupResult {
         case success
@@ -26,12 +27,6 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
     }
     private let sessionQueue = DispatchQueue(label: "session queue")
     private var setupResult: sessionSetupResult = .success
-    
-
-
-//    let session = AVCaptureDevice.DiscoverySession(deviceTypes: [.builtInWideAngleCamera], mediaType: AVMediaType.video, position: .unspecified)
-//    guard let cameras = (session?.devices.flatMap {$0}), cameras.isEmpty else { throw CameraViewError.noCamerasAvailable }
-
     
     let classifierText: UILabel = {
         let classifer = UILabel()
@@ -68,7 +63,8 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         let theView: UIView = {
+        
+        let theView: UIView = {
             let view = UIView()
             view.backgroundColor = .white
             view.translatesAutoresizingMaskIntoConstraints = false
@@ -144,7 +140,7 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
                                      cameraButtonTopAnchor,cameraButtonRightAnchor,cameraButtonLeftAnchor,cameraButtonHeightAnchor])
        }
     
-        // takes picture of image from the incorrect view 
+        // takes picture of image from the incorrect view
         @objc func takePhoto() {
             let imagePicker = UIImagePickerController()
             imagePicker.delegate = self
@@ -157,23 +153,10 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
         imageSession.stopRunning()
 //        imageOutput.capturePhoto(with: AVCapturePhotoOutput, delegate: self as! AVCapturePhoto)
         let settingsForMonitoring = AVCapturePhotoSettings()
-        settingsForMonitoring.flashMode = .auto
         settingsForMonitoring.isAutoStillImageStabilizationEnabled = true
         settingsForMonitoring.isHighResolutionPhotoEnabled = false
-        
-        let alertController = UIAlertController(title: "Alert", message: "Would you like to save image to library?", preferredStyle: UIAlertControllerStyle.alert)
-        let savePhoto = UIAlertAction(title: "Save", style: UIAlertActionStyle.default, handler: nil)
-        let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
-        
-//        UIImageWriteToSavedPhotosAlbum(imageSession, nil, nil, nil)
-        
-        alertController.addAction(savePhoto)
-        alertController.addAction(cancel)
-        self.present(alertController, animated: true, completion: nil)
     }
-    
-
-    
+   
 }
 
 //https://github.com/search?q=swift+navigation+controller+programmatically+&type=Issues&utf8=%E2%9C%93

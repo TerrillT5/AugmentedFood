@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D713AF6A1F8FD83C00FBF0D6 /* TakeImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D713AF691F8FD83C00FBF0D6 /* TakeImageButton.swift */; };
 		D730F1A61F992C6200C54FF8 /* ImageCaptureProcessor.swift in Sources */ = {isa = PBXBuildFile; fileRef = D730F1A51F992C6200C54FF8 /* ImageCaptureProcessor.swift */; };
 		D753BC071F8F9F4F00105F22 /* CameraViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D753BC061F8F9F4F00105F22 /* CameraViewError.swift */; };
 		D753BC091F8FABA700105F22 /* CameraFlash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D753BC081F8FABA700105F22 /* CameraFlash.swift */; };
@@ -39,7 +38,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D713AF691F8FD83C00FBF0D6 /* TakeImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeImageButton.swift; sourceTree = "<group>"; };
 		D730F1A51F992C6200C54FF8 /* ImageCaptureProcessor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCaptureProcessor.swift; sourceTree = "<group>"; };
 		D753BC061F8F9F4F00105F22 /* CameraViewError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewError.swift; sourceTree = "<group>"; };
 		D753BC081F8FABA700105F22 /* CameraFlash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFlash.swift; sourceTree = "<group>"; };
@@ -111,7 +109,6 @@
 				D7AF399A1F7159EA006AFEFA /* LandingVC.swift */,
 				D7A883231F740DDC00BB1763 /* CameraView.swift */,
 				D753BC061F8F9F4F00105F22 /* CameraViewError.swift */,
-				D713AF691F8FD83C00FBF0D6 /* TakeImageButton.swift */,
 				D730F1A51F992C6200C54FF8 /* ImageCaptureProcessor.swift */,
 				D753BC081F8FABA700105F22 /* CameraFlash.swift */,
 				D7DE4A641F7A97FB00200FC3 /* Supporting Files */,
@@ -284,7 +281,6 @@
 				D7A883241F740DDC00BB1763 /* CameraView.swift in Sources */,
 				D753BC091F8FABA700105F22 /* CameraFlash.swift in Sources */,
 				D7DE4A611F7A83DE00200FC3 /* Resnet50.mlmodel in Sources */,
-				D713AF6A1F8FD83C00FBF0D6 /* TakeImageButton.swift in Sources */,
 				D7AF399B1F7159EA006AFEFA /* LandingVC.swift in Sources */,
 				D730F1A61F992C6200C54FF8 /* ImageCaptureProcessor.swift in Sources */,
 				D7AF39991F7159EA006AFEFA /* AppDelegate.swift in Sources */,
