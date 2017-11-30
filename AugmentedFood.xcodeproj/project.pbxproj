@@ -7,7 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D71A36C11F83E36E00DF696E /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D71A36C01F83E36E00DF696E /* CustomNavigationController.swift */; };
+		D713AF6A1F8FD83C00FBF0D6 /* TakeImageButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D713AF691F8FD83C00FBF0D6 /* TakeImageButton.swift */; };
+		D753BC071F8F9F4F00105F22 /* CameraViewError.swift in Sources */ = {isa = PBXBuildFile; fileRef = D753BC061F8F9F4F00105F22 /* CameraViewError.swift */; };
+		D753BC091F8FABA700105F22 /* CameraFlash.swift in Sources */ = {isa = PBXBuildFile; fileRef = D753BC081F8FABA700105F22 /* CameraFlash.swift */; };
 		D7A883241F740DDC00BB1763 /* CameraView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7A883231F740DDC00BB1763 /* CameraView.swift */; };
 		D7AF39991F7159EA006AFEFA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF39981F7159EA006AFEFA /* AppDelegate.swift */; };
 		D7AF399B1F7159EA006AFEFA /* LandingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D7AF399A1F7159EA006AFEFA /* LandingVC.swift */; };
@@ -36,7 +38,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D71A36C01F83E36E00DF696E /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
+		D713AF691F8FD83C00FBF0D6 /* TakeImageButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TakeImageButton.swift; sourceTree = "<group>"; };
+		D753BC061F8F9F4F00105F22 /* CameraViewError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraViewError.swift; sourceTree = "<group>"; };
+		D753BC081F8FABA700105F22 /* CameraFlash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CameraFlash.swift; sourceTree = "<group>"; };
 		D7A883231F740DDC00BB1763 /* CameraView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CameraView.swift; sourceTree = "<group>"; };
 		D7A883251F740E1500BB1763 /* Resnet50.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; path = Resnet50.mlmodel; sourceTree = "<group>"; };
 		D7AF39951F7159EA006AFEFA /* AugmentedFood.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AugmentedFood.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -104,7 +108,9 @@
 				D7AF39A41F7159EA006AFEFA /* Info.plist */,
 				D7AF399A1F7159EA006AFEFA /* LandingVC.swift */,
 				D7A883231F740DDC00BB1763 /* CameraView.swift */,
-				D71A36C01F83E36E00DF696E /* CustomNavigationController.swift */,
+				D753BC061F8F9F4F00105F22 /* CameraViewError.swift */,
+				D713AF691F8FD83C00FBF0D6 /* TakeImageButton.swift */,
+				D753BC081F8FABA700105F22 /* CameraFlash.swift */,
 				D7DE4A641F7A97FB00200FC3 /* Supporting Files */,
 			);
 			path = AugmentedFood;
@@ -273,10 +279,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				D7A883241F740DDC00BB1763 /* CameraView.swift in Sources */,
-				D71A36C11F83E36E00DF696E /* CustomNavigationController.swift in Sources */,
+				D753BC091F8FABA700105F22 /* CameraFlash.swift in Sources */,
 				D7DE4A611F7A83DE00200FC3 /* Resnet50.mlmodel in Sources */,
+				D713AF6A1F8FD83C00FBF0D6 /* TakeImageButton.swift in Sources */,
 				D7AF399B1F7159EA006AFEFA /* LandingVC.swift in Sources */,
 				D7AF39991F7159EA006AFEFA /* AppDelegate.swift in Sources */,
+				D753BC071F8F9F4F00105F22 /* CameraViewError.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -435,7 +443,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P2NLM369Z9;
+				DEVELOPMENT_TEAM = UG892XBK75;
 				INFOPLIST_FILE = AugmentedFood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "t.thorne96-yahoo.com.AugmentedFood";
@@ -450,7 +458,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = P2NLM369Z9;
+				DEVELOPMENT_TEAM = UG892XBK75;
 				INFOPLIST_FILE = AugmentedFood/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "t.thorne96-yahoo.com.AugmentedFood";
