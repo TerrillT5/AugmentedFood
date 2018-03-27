@@ -76,7 +76,6 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
             view.addSubview(classifierText)
             return pictureView
         }()
-        // https://turbofuture.com/cell-phones/Access-Photo-Camera-and-Library-in-Swift
         
         let cameraButton: UIButton = {
             let takePicture = UIButton()
@@ -118,10 +117,8 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
         NSLayoutConstraint.activate([classifiedTextTopAnchor,classifiedTextRightAnchor,classifiedTextLeftAnchor,classifiedTextHeightAnchor,
                                       imageViewTopAnchor,imageViewRightAnchor ,imageViewLeftAnchor,imageViewWidthAnchor, imageViewHeightAnchor])
     }
-    // https://stackoverflow.com/questions/28137259/create-an-uialertaction-in-swift
     @objc func stopCamera() {
         imageSession.stopRunning()
-//        imageOutput.capturePhoto(with: AVCapturePhotoOutput, delegate: self as! AVCapturePhoto)
         let settingsForMonitoring = AVCapturePhotoSettings()
         settingsForMonitoring.flashMode = .auto
         settingsForMonitoring.isAutoStillImageStabilizationEnabled = true
@@ -131,7 +128,6 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
         let savePhoto = UIAlertAction(title: "Save", style: UIAlertActionStyle.default, handler: nil)
         let cancel = UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil)
         
-//        UIImageWriteToSavedPhotosAlbum(imageSession, nil, nil, nil)
         
         alertController.addAction(savePhoto)
         alertController.addAction(cancel)
@@ -140,6 +136,5 @@ class CameraView: UIViewController,AVCaptureVideoDataOutputSampleBufferDelegate,
     }
 }
 
-//https://github.com/search?q=swift+navigation+controller+programmatically+&type=Issues&utf8=%E2%9C%93
 
 
